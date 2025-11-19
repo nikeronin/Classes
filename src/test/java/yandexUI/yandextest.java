@@ -1,9 +1,13 @@
 package yandexUI;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+
+import java.time.Duration;
+
 import static com.codeborne.selenide.Selenide.$;
 
 
@@ -32,10 +36,16 @@ public class yandextest {
         return this;
     }
 
-
-    @Step("Проверить отображение красной иконки")
-    public yandextest isDisplayed() {
-        YandexRedIcon.isDisplayed();
-        return this;
+    @Step("Ожидаем появление красной иконки")
+    public boolean verifyRedIconIsDisplayed() {
+        return YandexRedIcon
+                .should(Condition.visible, Duration.ofSeconds(10))
+                .isDisplayed();
     }
+
+//    @Step("Проверить отображение красной иконки")
+//    public yandextest isDisplayed() {
+//        YandexRedIcon.isDisplayed();
+//        return this;
+//    }
 }

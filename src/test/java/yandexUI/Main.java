@@ -23,7 +23,7 @@ public class Main {
         yandextest.openPage()
                 .setTextInput("Курс доллара")
                 .click()
-                .isDisplayed();
+                .verifyRedIconIsDisplayed();
 
     }
 }
