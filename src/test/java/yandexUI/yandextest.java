@@ -13,7 +13,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class yandextest {
     SelenideElement TextInput = $(By.name("text"));
-    SelenideElement SearchButton = $(By.className("search3__button"));
+    private final SearchButton SearchButtonYandex = new SearchButton($(By.className("search3__button")));
     SelenideElement YandexRedIcon = $(By.className("HeaderLogo"));
 
     @Step("Открыть поиск Яндекса")
@@ -32,7 +32,7 @@ public class yandextest {
 
     @Step("Начать поиск")
     public yandextest click() {
-        SearchButton.click();
+        SearchButtonYandex.click();
         return this;
     }
 
